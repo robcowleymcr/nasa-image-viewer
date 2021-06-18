@@ -13,8 +13,6 @@ const actions = {
   async performSearch({commit}, val) {
     const response = await Search.performSearch(val);
     const results = response.data.collection.items;
-    // const tumbLinks = results.forEach()
-    // console.log(results)
     commit('setSearchResults', results);
   }
 }

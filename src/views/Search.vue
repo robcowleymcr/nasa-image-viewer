@@ -7,11 +7,11 @@
           <b-form-input v-model="searchString" @input.native="onChange" placeholder="Search"></b-form-input>
           <h2>Results</h2>
         </b-col>
-        <!-- <b-row> -->
-          <b-col v-for="(result, index) in searchResults" :key="index" cols="2">
-            <b-img :src="result.links[0].href"></b-img>
-          </b-col>
-        <!-- </b-row> -->
+      </b-row>
+      <b-row>
+        <b-col v-for="(result, index) in searchResults" :key="index" cols="2">
+          <b-img v-bind="imageProps" thumbnail :src="result.links[0].href"></b-img>
+        </b-col>
       </b-row>
     </b-container>
     
@@ -27,7 +27,12 @@ export default {
   name: 'Search',
   data() {
     return {
-      searchString: ''
+      searchString: '',
+      imageProps: {
+          blankColor: '#bbb',
+          width: 200,
+          height: 150
+      }
     }
   },
   computed: {
