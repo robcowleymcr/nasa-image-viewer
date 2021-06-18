@@ -8,15 +8,16 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/search'
+  },
+  {
+    path: '/search',
     name: 'Search',
     component: Search
   },
   {
     path: '/asset/:id',
     name: 'Asset',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     props:  { name: 'id' },
     component: Asset
   }
