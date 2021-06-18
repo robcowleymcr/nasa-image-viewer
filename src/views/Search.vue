@@ -10,7 +10,7 @@
       </b-row>
       <b-row>
         <b-col v-for="(result, index) in searchResults" :key="index" cols="2">
-          <b-img v-bind="imageProps" thumbnail :src="result.links[0].href"></b-img>
+          <b-img @click="$router.push(`/asset/${result.data[0].nasa_id}`)" thumbnail :src="result.links[0].href" />
         </b-col>
       </b-row>
     </b-container>
@@ -19,8 +19,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+
 import { mapState } from 'vuex';
 
 export default {

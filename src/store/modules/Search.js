@@ -2,7 +2,7 @@ import Search from '../../api/Search';
 
 // state
 const state = () => ({
-  searchResults: [],
+  searchResults: []
 })
 
 // getters
@@ -14,6 +14,12 @@ const actions = {
     const response = await Search.performSearch(val);
     const results = response.data.collection.items;
     commit('setSearchResults', results);
+  },
+  async getAsset({commit}, val) {
+    const response = await Search.getAsset(val);
+    const results = response.data.collection.items;
+    commit('getAsset', results);
+    return results;
   }
 }
 
