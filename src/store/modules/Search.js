@@ -10,10 +10,16 @@ const getters = {}
 
 // actions
 const actions = {
-  async performSearch({commit}, val) {
-    const response = await Search.performSearch(val);
-    const results = response.data.collection.items;
-    commit('setSearchResults', results);
+  performSearch({commit}, val) {
+    return new Promise((resolve) => {
+      Search.performSearch(val)
+        .then(response => {
+          const results = response.data.collection.items;
+          commit('setSearchResults', results);
+          resolve();
+          return results;
+        })
+    });
   },
   async getAsset({commit}, val) {
     const response = await Search.getAsset(val);
