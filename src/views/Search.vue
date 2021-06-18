@@ -1,14 +1,14 @@
 <template>
   <div class="search">
-    <b-container>
+    <b-container class="py-3">
       <b-row>
         <b-col cols="12">
-          <h1>NASA Search</h1>
-          <b-form-input v-model="searchString" @input.native="onChange" placeholder="Search"></b-form-input>
-          <h2>Results</h2>
+          <h1 class="mb-4">NASA Search</h1>
+          <b-form-input class="mb-4" v-model="searchString" @input.native="onChange" placeholder="Search"></b-form-input>
         </b-col>
       </b-row>
-      <b-row>
+      <b-row v-if="searchResults.length !== 0">
+        <h2>Results</h2>
         <b-col v-for="(result, index) in searchResults" :key="index" cols="2">
           <b-img @click="$router.push(`/asset/${result.data[0].nasa_id}`)" thumbnail :src="result.links[0].href" />
         </b-col>
