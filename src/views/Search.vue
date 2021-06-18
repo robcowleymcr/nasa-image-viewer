@@ -66,10 +66,14 @@ export default {
   methods: {
     onChange(e) {
       const val = e.target.value;
-      this.$store.dispatch('Search/performSearch', val)
-      .then(() => {
-        this.rows = this.searchResults.length;
-      })
+      if(val === "") {
+        this.$store.dispatch('Search/clearSearch')
+      } else {
+        this.$store.dispatch('Search/performSearch', val)
+        .then(() => {
+          this.rows = this.searchResults.length;
+        })
+      }
     }
   },
   mounted() {
