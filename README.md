@@ -1,4 +1,4 @@
-# test-app
+# nasa-image-viewer
 
 ## Project setup
 ```
