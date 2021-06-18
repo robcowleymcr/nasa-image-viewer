@@ -8,7 +8,7 @@
         </b-col>
       </b-row>
       <b-row v-if="searchResults.length !== 0">
-        <h2>Results</h2>
+        <h2 class="mb-4">Results</h2>
         <b-col v-for="(result, index) in searchResults" :key="index" cols="2">
           <b-img @click="$router.push(`/asset/${result.data[0].nasa_id}`)" thumbnail :src="result.links[0].href" />
         </b-col>
@@ -44,6 +44,10 @@ export default {
       const val = e.target.value;
       this.$store.dispatch('Search/performSearch', val)
     }
+  },
+  created() {
+    // this.totalRows = this.searchResults.length;
+    // this.paginate(this.perPage, 0);
   }
 }
 </script>

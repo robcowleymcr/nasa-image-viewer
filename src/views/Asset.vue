@@ -1,14 +1,11 @@
 <template>
   <div class="asset">
-    <b-container>
+    <b-container class="py-3">
       <b-row>
-        <b-col cols="2">
-          <div class="float-right">Go Back</div>
-        </b-col>
-          
-        <b-col cols="10">
-          <h1>{{ this.title }}</h1>
-          <p>{{ this.description }}</p>
+        <b-col cols="12">
+          <h6 class="mb-3 go-back" @click="$router.push('/search')">Go Back</h6>
+          <h1 class="mb-4">{{ this.title }}</h1>
+          <p class="mb-4">{{ this.description }}</p>
         </b-col>
         <b-col cols="12">
           <b-img fluid :src="imgHref" />
@@ -49,3 +46,9 @@ export default {
   }
 }
 </script>
+
+<style lang="css" scoped>
+.go-back {
+  cursor: pointer;
+}
+</style>
