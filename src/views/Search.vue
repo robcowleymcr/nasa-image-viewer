@@ -41,7 +41,7 @@ export default {
   name: 'Search',
   data() {
     return {
-      currentPage: 0,
+      currentPage: 1,
       perPage: 10,
       rows: 0,
       searchString: '',
@@ -73,6 +73,7 @@ export default {
     }
   },
   mounted() {
+    this.$store.dispatch('Search/clearSearch')
   }
 }
 </script>

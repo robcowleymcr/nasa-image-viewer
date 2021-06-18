@@ -26,6 +26,9 @@ const actions = {
     const results = response.data.collection.items;
     commit('getAsset', results);
     return results;
+  },
+  clearSearch({commit}) {
+    commit('clearSearch');
   }
 }
 
@@ -33,6 +36,9 @@ const actions = {
 const mutations = {
   setSearchResults (state, results) {
     state.searchResults = results;
+  },
+  clearSearch (state) {
+    state.searchResults = [];
   }
 }
 
